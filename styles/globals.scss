@@ -1,0 +1,22 @@
+:root {
+	--light-blue: #48dbfb;
+	--dark-blue: #0d4f8b;
+	--light-white: #f1f1f1;
+	--dark-cinza: #353b48;
+}
+
+html {
+	scroll-behavior: smooth;
+	&::selection {
+		background-color: var(--light-blue);
+	}
+
+	&::-webkit-scrollbar {
+		width: 8px;
+		background-color: var(--light-white);
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: var(--light-blue);
+	}
+}

@@ -1,0 +1,64 @@
+.navbar {
+	position: fixed;
+	background-color: transparent;
+	width: 100%;
+	padding: 30px 0;
+	top: 0;
+	z-index: 999;
+	transition: 0.3s linear;
+	overflow-x: hidden;
+
+	&__container {
+		max-width: 1300px;
+		margin: auto;
+		padding: 0 2.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__logo {
+		&__link {
+			cursor: pointer;
+		}
+
+		&__img {
+			object-fit: contain;
+		}
+	}
+
+	.menu__toggler {
+		background: none;
+		width: 30px;
+		border: none;
+		cursor: pointer;
+		position: relative;
+		outline: none;
+		z-index: 999;
+		display: none;
+
+		&__lines {
+			display: block;
+			height: 3px;
+			background-color: var(--light-white);
+			margin: 0.375rem 0;
+			position: relative;
+			transition: 0.3s linear;
+		}
+	}
+
+	&__links {
+		//color: var(--light-white);
+		text-transform: uppercase;
+		transition: 0.2s linear;
+
+		&:hover {
+			color: var(--light-blue);
+		}
+
+		&__container {
+			display: flex;
+			column-gap: 1.5rem;
+		}
+	}
+}
