@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--light-blue: #48dbfb;
+	--dark-blue: #0d4f8b;
+	--light-white: #f1f1f1;
+	--dark-cinza: #353b48;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+html::selection {
+	background-color: var(--light-blue);
+}
+
+html::-webkit-scrollbar {
+	width: 8px;
+	background-color: var(--light-white);
+}
+
+html::-webkit-scrollbar-thumb {
+	background-color: var(--light-blue);
+}
