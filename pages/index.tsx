@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import Hero, { HeroCarouselItemProps } from "../components/Hero/Hero";
-import Layout from "../components/Layout/Layout";
+import Hero, { HeroCarouselItemProps } from "../components/Hero";
+import Layout from "../components/Layout";
 
 const Home: NextPage = () => {
 	const carouselItems: HeroCarouselItemProps[] = [
