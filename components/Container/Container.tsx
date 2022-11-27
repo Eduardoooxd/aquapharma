@@ -6,7 +6,7 @@ interface ContainerProps {
 
 const Container: FunctionComponent<ContainerProps> = ({ children }) => {
 	return (
-		<div className="max-w-screen-2xl px-10 flex items-center justify-between">
+		<div className="max-w-screen-2xl w-full px-10 flex items-center justify-center">
 			{children}
 		</div>
 	);
