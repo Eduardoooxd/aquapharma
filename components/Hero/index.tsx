@@ -15,7 +15,6 @@ export interface HeroProps {
 }
 
 const Hero: FunctionComponent<HeroProps> = ({ carouselItems }) => {
-	console.log(carouselItems);
 	const id = useId();
 	return (
 		<section className="w-full min-h-screen">
