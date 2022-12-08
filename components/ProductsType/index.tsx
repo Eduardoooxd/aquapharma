@@ -16,7 +16,7 @@ const ProductsType: FunctionComponent<ProductsTypeProps> = ({
 		<div className="text-center">
 			<h3 className="text-2xl">{type}</h3>
 
-			<div className="grid place-center place-content-center grid-cols-responsiveness-250px-columns">
+			<div className="mt-8 gap-6 grid place-center place-content-center grid-cols-responsiveness-250px-columns">
 				{products.map((product, index) => (
 					<Product key={index} {...product} />
 				))}
