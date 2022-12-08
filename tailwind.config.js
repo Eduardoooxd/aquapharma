@@ -10,6 +10,9 @@ module.exports = {
 				translateUpwards: "translateUpwards 6s linear infinite",
 				zoomOut: "zoomOut 6s linear infinite",
 			},
+			aspectRatio: {
+				"3/2": "3 / 2",
+			},
 			keyframes: {
 				translateUpwards: {
 					"0%": { transform: "translateY(10%)" },
@@ -18,6 +21,10 @@ module.exports = {
 				zoomOut: {
 					"100%": { width: "100%" },
 				},
+			},
+			gridTemplateColumns: {
+				"responsiveness-250px-columns":
+					"repeat(auto-fit, minmax(250px, 1fr))",
 			},
 		},
 	},

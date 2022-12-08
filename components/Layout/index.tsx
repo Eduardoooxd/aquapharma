@@ -15,7 +15,6 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
 		<div className="">
 			<Navbar />
 			{children}
-
 			<Footer />
 		</div>
 	);

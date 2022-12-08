@@ -1,30 +1,48 @@
 import { FunctionComponent } from "react";
+import Container from "../Container";
+import SectionContent from "../SectionContent";
+import SectionTitle from "../SectionTitle";
+
+const AquapharmaValues: FunctionComponent = () => {
+	const AQUAPHARMA_VALUES = ["Visionários", "Atenciosos", "Compaixão"];
+
+	return (
+		<ul className=" inline-flex gap-x-8 ">
+			{AQUAPHARMA_VALUES.map((value, index) => (
+				<li className="list-disc text-lg list-inside " key={index}>
+					{value}
+				</li>
+			))}
+		</ul>
+	);
+};
 
 interface AboutProps {}
 
 const About: FunctionComponent<AboutProps> = () => {
 	return (
-		<section>
-			<h2 className="">A nossa missão</h2>
-			<div className="flex flex-col">
-				<div>
-					<span>Visionários</span>
-					<span>Atenciosos</span>
-					<span>Compaixão</span>
+		<SectionContent>
+			<Container>
+				<SectionTitle>A nossa missão</SectionTitle>
+				<div className="flex flex-col gap-4 ">
+					<AquapharmaValues />
+					<div>
+						<p className="leading-8">
+							A AquaPharma está no mercado desde 2018, nascendo da
+							ambição de fornecer produtos e serviços de
+							qualidade, com eficiência e a máxima exigência, a
+							todos os clientes que queiram fomentar uma relação
+							duradoura, de confiança e bastante direta,
+							fornecendo ao mercado produtos e serviços inovadores
+							e sofisticados que contribuam para incrementar os
+							níveis de saúde e bem-estar dos nossos clientes,
+							assegurado uma relação preço/qualidade que seja uma
+							mais-valia para o cliente.
+						</p>
+					</div>
 				</div>
-				<p>
-					A AquaPharma está no mercado desde 2018. Nasceu da ambição
-					de fornecer produtos e serviços de qualidade, com eficiência
-					e a máxima exigência, a todos os clientes que queiram
-					fomentar uma relação duradoura, de confiança e bastante
-					direta. Fornecer ao mercado produtos e serviços inovadores e
-					sofisticados que contribuam para incrementar os níveis de
-					saúde e bem-estar dos nossos clientes, assegurado uma
-					relação preço/qualidade que seja uma mais-valia para o
-					cliente.
-				</p>
-			</div>
-		</section>
+			</Container>
+		</SectionContent>
 	);
 };
 

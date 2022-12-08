@@ -1,4 +1,5 @@
 import { HeroCarouselItemProps } from "../../../components/Hero";
+import { ProductsTypeProps } from "../../../components/ProductsType";
 
 export const CAROUSEL_ITEMS: HeroCarouselItemProps[] = [
 	{
@@ -67,4 +68,45 @@ export const CAROUSEL_ITEMS: HeroCarouselItemProps[] = [
 	},
 ];
 
-export const PRODUCTS = [];
+export const ProductsSectionData: ProductsTypeProps[] = [
+	{
+		type: "SOLUÇÕES EMPRESARIAIS",
+		products: [
+			{
+				name: "Água KMZERO",
+				image: "/assets/images/products/kmzero/kmzero.png",
+				alt: "Solução empresarial água kmzero",
+				link: "kmzero",
+			},
+		],
+	},
+	{
+		type: "SOLUÇÕES DOMICILIARES",
+		products: [
+			{
+				name: "Hydron",
+				image: "/assets/images/products/hydron/hydron.png",
+				alt: "Solução domiciliar Hydron",
+				link: "hydron",
+			},
+			{
+				name: "Purificadores",
+				image: "/assets/images/products/advance/advance2.png",
+				alt: "Solução domiciliares de Purificadores de água",
+				link: "purificadoragua",
+			},
+			{
+				name: "Magnetoterapia",
+				image: "/assets/images/products/magnetoterapia/magneto2.png",
+				alt: "Solução domiciliares de Magnetoterapia",
+				link: "magnetoterapia",
+			},
+			{
+				name: "Laundry Pro",
+				image: "/assets/images/products/laundry-pro/laundry-pro.png",
+				alt: "Solução domiciliar Laundry Pro",
+				link: "laundry",
+			},
+		],
+	},
+];
