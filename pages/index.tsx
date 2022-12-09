@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import About from "../components/About";
+import ContactSection from "../components/ContactSection";
 import Hero from "../components/Hero";
 import Layout from "../components/Layout";
+import Map from "../components/Map";
 import Products from "../components/Products";
 import {
 	CAROUSEL_ITEMS,
@@ -16,6 +18,9 @@ const Home: NextPage = () => {
 				<About />
 				<hr />
 				<Products productsTypes={ProductsSectionData} />
+				<hr />
+				<ContactSection />
+				<Map />
 			</Layout>
 		</>
 	);

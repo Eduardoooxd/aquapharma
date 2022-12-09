@@ -10,6 +10,9 @@ module.exports = {
 				translateUpwards: "translateUpwards 6s linear infinite",
 				zoomOut: "zoomOut 6s linear infinite",
 			},
+			colors: {
+				"aquapharma-blue": "#48dbfb",
+			},
 			aspectRatio: {
 				"3/2": "3 / 2",
 			},
