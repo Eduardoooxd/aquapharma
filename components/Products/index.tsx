@@ -15,6 +15,7 @@ const Products: FunctionComponent<ProductSectionsProps> = ({
 		<SectionContent>
 			<Container>
 				<SectionTitle>OS NOSSOS PRODUTOS</SectionTitle>
+
 				<div className="flex justify-center flex-col gap-12">
 					{productsTypes.map((productType, index) => {
 						return <ProductsType key={index} {...productType} />;

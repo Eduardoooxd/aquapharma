@@ -16,7 +16,7 @@ const ContactSection: FunctionComponent = () => {
 			<Container>
 				<SectionTitle>Contactos</SectionTitle>
 
-				<div className="flex justify-center items-center gap-24">
+				<div className="flex lg:flex-row flex-col justify-center items-center gap-24">
 					<ContactForm />
 
 					<div className="flex h-max justify-between  flex-col flex-1">
