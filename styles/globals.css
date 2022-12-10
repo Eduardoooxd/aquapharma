@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Epilogue&display=swap");
+
 :root {
 	--light-blue: #48dbfb;
 	--dark-blue: #0d4f8b;
@@ -46,8 +49,4 @@ html::-webkit-scrollbar-thumb {
 
 .sticky--nav a {
 	color: var(--dark-cinza);
-}
-
-.teste {
-	transform: translateX(0);
 }

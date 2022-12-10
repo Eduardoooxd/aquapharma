@@ -8,7 +8,6 @@ interface LayoutProps {
 }
 
 const GoToTopButton: FunctionComponent = () => {
-	// TODO Create a custom hook to know current position of the user
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
@@ -17,8 +16,8 @@ const GoToTopButton: FunctionComponent = () => {
 		<button
 			hidden
 			onClick={scrollToTop}
-			className="fixed bg-aquapharma-blue bottom-10 right-10 aspect-square w-10 rounded-lg flex justify-center items-center ">
-			<FaArrowUp className="hover:scale-125 transition duration-300 text-white w-full " />
+			className="group fixed bg-aquapharma-blue bottom-10 right-10 aspect-square w-10 rounded-lg flex justify-center items-center ">
+			<FaArrowUp className="group-hover:scale-125 transition duration-300 text-white w-full " />
 		</button>
 	);
 };

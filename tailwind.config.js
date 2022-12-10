@@ -7,11 +7,15 @@ module.exports = {
 	theme: {
 		extend: {
 			animation: {
-				translateUpwards: "translateUpwards 6s linear infinite",
+				translateUpwards: "translateUpwards 6s linear forwards",
 				zoomOut: "zoomOut 6s linear infinite",
 			},
 			colors: {
 				"aquapharma-blue": "#48dbfb",
+			},
+			fontFamily: {
+				Montserrat: ["Montserrat", "sans-serif"],
+				Epilogue: ["Epilogue", "sans-serif"],
 			},
 			aspectRatio: {
 				"3/2": "3 / 2",
@@ -22,7 +26,7 @@ module.exports = {
 					"100%": { transform: "translateY(0)" },
 				},
 				zoomOut: {
-					"100%": { width: "100%" },
+					"100%": { transform: "scale(1)" },
 				},
 			},
 			gridTemplateColumns: {

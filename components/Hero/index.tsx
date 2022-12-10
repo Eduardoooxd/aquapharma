@@ -41,7 +41,7 @@ const Hero: FunctionComponent<HeroProps> = ({ carouselItems }) => {
 								alt={item.alt}
 								layout="fill"
 								objectFit="cover"
-								className="object-left animate-zoomOut"
+								className="object-left animate-zoomOut scale-110"
 							/>
 							<div className="min-h-screen flex items-center justify-center relative animate-translateUpwards">
 								<div className="text-white max-w-2xl ">
