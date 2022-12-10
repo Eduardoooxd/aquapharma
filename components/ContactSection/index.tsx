@@ -4,11 +4,13 @@ import Container from "../Container";
 import SectionContent from "../SectionContent";
 import SectionTitle from "../SectionTitle";
 
-const ContactSubTitle = ({ text }) => (
-	<h3 className="text-3xl border-b border-solid border-black inline pb-[2px]">
-		{text}
-	</h3>
-);
+const ContactSubTitle = ({ text }: { text: string }) => {
+	return (
+		<h3 className="text-3xl border-b border-solid border-black inline pb-[2px]">
+			{text}
+		</h3>
+	);
+};
 
 const ContactSection: FunctionComponent = () => {
 	return (
