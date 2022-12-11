@@ -22,7 +22,7 @@ export const HamburgerNavbarLink: FunctionComponent<NavbarLinkProps> = ({
 }) => {
 	return (
 		<Link href={href}>
-			<a className="font-Montserrat p-5 border-b text-left text-xl uppercase transition duration-200 ease-linear hover:text-blue-600  hover:scale-105 hover:drop-shadow-2xl">
+			<a className=" font-Montserrat w-4/5 mx-auto py-2 border-b text-left text-base uppercase transition duration-200 ease-linear hover:text-blue-600  hover:scale-105 hover:drop-shadow-2xl">
 				{text}
 			</a>
 		</Link>
