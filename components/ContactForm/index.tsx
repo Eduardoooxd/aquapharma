@@ -7,7 +7,10 @@ interface ContactFormInputProps {
 	handler: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	placeholder: string;
 	required: boolean;
+	triedSubmission: boolean;
 	pattern?: string;
+	minLength?: number;
+	maxLength?: number;
 }
 
 const ContactFormInput: FunctionComponent<ContactFormInputProps> = ({
@@ -17,20 +20,40 @@ const ContactFormInput: FunctionComponent<ContactFormInputProps> = ({
 	handler,
 	placeholder,
 	required,
+	triedSubmission,
 	pattern,
-}) => (
-	<input
-		name={name}
-		type={type}
-		value={value}
-		onChange={handler}
-		className="py-5 px-10 bg-gray-300"
-		placeholder={placeholder}
-		required={required}
-		pattern={pattern}
-		//minlength="3"
-	/>
-);
+	minLength,
+	maxLength,
+}) => {
+	const [hasInteracted, setHasInteracted] = useState(false);
+	const invalidInputActionTrigger = hasInteracted || triedSubmission;
+
+	return (
+		<div className="w-full flex flex-col">
+			<input
+				name={name}
+				type={type}
+				value={value}
+				onChange={handler}
+				className={`peer py-5 drop-shadow-md px-10 bg-gray-300 ${
+					invalidInputActionTrigger &&
+					"invalid:border invalid:border-red-400 invalid:rounded"
+				}`}
+				placeholder={placeholder}
+				required={required}
+				onKeyDown={() => setHasInteracted(true)}
+				pattern={pattern}
+				minLength={minLength}
+				maxLength={maxLength}
+			/>
+			{invalidInputActionTrigger ? (
+				<span className="mt-2 opacity-0 capitalize peer-invalid:opacity-100 text-red-400 transition-all">
+					Introduza {placeholder} valido
+				</span>
+			) : null}
+		</div>
+	);
+};
 
 interface ContactForm {
 	name: string;
@@ -46,6 +69,8 @@ const ContactForm: FunctionComponent = () => {
 		telephone: "",
 		message: "",
 	});
+
+	const [triedSubmission, setTriedSubmission] = useState(false);
 
 	const handleInputChange = (
 		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -67,19 +92,23 @@ const ContactForm: FunctionComponent = () => {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className="flex-1 gap-4 flex flex-col justify-center">
+			className="flex-1 gap-2 flex flex-col justify-center">
 			<ContactFormInput
 				name="name"
 				type="text"
 				handler={handleInputChange}
 				placeholder="Nome"
 				value={contactForm.name}
+				triedSubmission={triedSubmission}
 				required={true}
+				minLength={3}
+				maxLength={22}
 			/>
 			<ContactFormInput
 				name="email"
 				type="email"
 				handler={handleInputChange}
+				triedSubmission={triedSubmission}
 				placeholder="Email"
 				value={contactForm.email}
 				required={true}
@@ -90,24 +119,25 @@ const ContactForm: FunctionComponent = () => {
 				placeholder="Seu Telefone"
 				handler={handleInputChange}
 				value={contactForm.telephone}
+				triedSubmission={triedSubmission}
 				required={true}
 				pattern="[0-9]+"
-				//minlength="9"
-				//maxlength="9"
+				minLength={9}
+				maxLength={9}
 			/>
 
 			<textarea
 				name="message"
-				className="py-5 px-10 bg-gray-300"
+				className="py-5 resize-none drop-shadow-md px-10 bg-gray-300 mb-10"
 				value={contactForm.message}
 				onChange={(event) => handleInputChange(event)}
-				placeholder="A sua Mensagem"
-				required></textarea>
+				placeholder="A sua Mensagem"></textarea>
 
 			<input
 				type="submit"
-				name="submit"
-				className="py-5 px-10 bg-gray-800 text-white"
+				value="Enviar"
+				onClick={() => setTriedSubmission(true)}
+				className="drop-shadow-md hover:underline hover:drop-shadow-lg cursor-pointer text-xl py-5 px-10 hover:bg-gray-500 bg-gray-800 text-white transition-all"
 			/>
 		</form>
 	);
