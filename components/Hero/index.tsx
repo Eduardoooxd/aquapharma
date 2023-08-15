@@ -39,8 +39,8 @@ const Hero: FunctionComponent<HeroProps> = ({ carouselItems }) => {
                                 priority
                                 src={item.src}
                                 alt={item.alt}
-                                layout="fill"
-                                objectFit="cover"
+                                fill
+                                style={{ objectFit: 'cover' }}
                                 className="object-left animate-zoomOut scale-110"
                             />
                             <div className="min-h-screen flex items-center justify-center relative animate-translateUpwards">

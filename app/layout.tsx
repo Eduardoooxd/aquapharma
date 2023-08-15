@@ -1,3 +1,4 @@
+import NextTopLoader from 'nextjs-toploader';
 import { Suspense } from 'react';
 import Footer from '../components/Footer';
 import GoToTopButton from '../components/GoToTopButton';
@@ -28,6 +29,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
         <html lang="PT">
             <body>
                 <Navbar />
+                <NextTopLoader />
                 <Suspense>
                     <main>{children}</main>
                 </Suspense>
