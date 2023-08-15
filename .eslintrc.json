@@ -1,3 +1,22 @@
 {
-  "extends": "next/core-web-vitals"
+    "root": true,
+    "plugins": ["@typescript-eslint"],
+    "extends": [
+        "next/core-web-vitals",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:tailwindcss/recommended"
+    ],
+    "rules": {
+        // I suggest you add those two rules:
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-empty-interface": "warn"
+    },
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx", "*.js"],
+            "parser": "@typescript-eslint/parser"
+        }
+    ]
 }
