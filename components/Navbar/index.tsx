@@ -56,24 +56,24 @@ const Navbar: FunctionComponent = () => {
 	);
 
 	return (
-		<nav
+        <nav
 			ref={navBarRef}
 			className="fixed bg-transparent w-full py-8 top-0 z-50 transition-all ease-linear duration-300 overflow-x-hidden flex justify-center">
 			<Container>
 				<div className="w-full flex justify-between items-center">
 					<div>
 						<Link href="/">
-							<a>
-								<Image
-									priority
-									src="/assets/images/logo/logo.jpg"
-									alt="Logo da Aquapharma"
-									height={70}
-									width={170}
-									className="object-contain "
-								/>
-							</a>
-						</Link>
+
+                            <Image
+                                priority
+                                src="/assets/images/logo/logo.jpg"
+                                alt="Logo da Aquapharma"
+                                height={70}
+                                width={170}
+                                className="object-contain "
+                            />
+
+                        </Link>
 					</div>
 					{isTabletOrMobile ? (
 						<HamburgerMenu navBarLinks={navBarLinks} />
@@ -83,7 +83,7 @@ const Navbar: FunctionComponent = () => {
 				</div>
 			</Container>
 		</nav>
-	);
+    );
 };
 
 export default Navbar;

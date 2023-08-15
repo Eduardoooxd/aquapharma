@@ -16,8 +16,8 @@ const Product: FunctionComponent<ProductProps> = ({
 	link,
 }) => {
 	return (
-		<div className="gallery">
-			<Link href={link}>
+        <div className="gallery">
+			<Link href={link} legacyBehavior>
 				<Image
 					className="aspect-[3/2] object-contain cursor-pointer hover:drop-shadow-2xl transition duration-300"
 					src={image}
@@ -28,7 +28,7 @@ const Product: FunctionComponent<ProductProps> = ({
 			</Link>
 			<h5 className="text-xl font-light">{name}</h5>
 		</div>
-	);
+    );
 };
 
 export default Product;
