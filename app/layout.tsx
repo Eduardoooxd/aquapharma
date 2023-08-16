@@ -31,7 +31,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                 <Navbar />
                 <NextTopLoader />
                 <Suspense>
-                    <main>{children}</main>
+                    <main className="min-h-screen">{children}</main>
                 </Suspense>
                 <GoToTopButton />
                 <Footer />

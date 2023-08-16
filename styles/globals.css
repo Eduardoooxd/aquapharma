@@ -2,51 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Epilogue&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Epilogue&display=swap');
 
 :root {
-	--light-blue: #48dbfb;
-	--dark-blue: #0d4f8b;
-	--light-white: #f1f1f1;
-	--dark-cinza: #353b48;
+    --light-blue: #48dbfb;
+    --dark-blue: #0d4f8b;
+    --light-white: #f1f1f1;
+    --dark-cinza: #353b48;
 }
 
 html {
-	scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 html::selection {
-	background-color: var(--light-blue);
+    background-color: var(--light-blue);
 }
 
 html::-webkit-scrollbar {
-	width: 8px;
-	background-color: var(--light-white);
+    width: 8px;
+    background-color: var(--light-white);
 }
 
 html::-webkit-scrollbar-thumb {
-	background-color: var(--light-blue);
+    background-color: var(--light-blue);
 }
 
 .invisible {
-	opacity: 0;
-	transition: all 1s;
-	filter: blur(5px);
-	transform: translateX(-100%);
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(5px);
+    transform: translateX(-100%);
 }
 
 .show {
-	opacity: 1;
-	filter: blur(0);
-	transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
 }
 
 .sticky--nav {
-	background-color: var(--light-white);
-	padding: 1rem 0;
+    background-color: var(--light-white);
+    padding: 1rem 0;
 }
 
 .sticky--nav a {
-	color: var(--dark-cinza);
+    color: var(--dark-cinza);
+}
+
+.text-balance {
+    text-wrap: balance;
+}
+
+.main-container {
+    @apply max-w-screen-xl w-full px-10 mx-auto;
 }
