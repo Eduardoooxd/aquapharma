@@ -17,7 +17,7 @@ const HamburgerMenu: FunctionComponent<HamburgerMenuProps> = ({ navBarLinks }) =
         <div>
             <Hamburger toggled={isOpen} toggle={setIsOpen} />
             <div
-                className={`fixed  py-32  max-w-sm w-full z-[-1] top-0  ${menuClass}  min-h-screen bg-white flex flex-col  gap-8 transition-all duration-500`}
+                className={`fixed  py-32  w-full z-[-1] top-0  ${menuClass}  min-h-screen bg-white flex flex-col  gap-8 transition-all duration-500`}
             >
                 <hr />
                 {navBarLinks.map((link, index) => (
