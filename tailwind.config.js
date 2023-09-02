@@ -41,6 +41,7 @@ module.exports = {
             },
             gridTemplateColumns: {
                 'responsiveness-250px-columns': 'repeat(auto-fit, minmax(250px, 1fr))',
+                'responsiveness-350px-columns': 'repeat(auto-fit, minmax(350px, 1fr))',
             },
         },
     },

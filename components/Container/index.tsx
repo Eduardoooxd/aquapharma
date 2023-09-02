@@ -5,7 +5,7 @@ interface ContainerProps {
 }
 
 const Container: FunctionComponent<ContainerProps> = ({ children }) => {
-    return <div className="main-container">{children}</div>;
+    return <div className="w-full max-w-screen-xl px-10 mx-auto">{children}</div>;
 };
 
 interface ContentContainerProps {
