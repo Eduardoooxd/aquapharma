@@ -1,11 +1,13 @@
+import { cn } from '@/lib/utils';
 import { FunctionComponent } from 'react';
 
 interface ContainerProps {
     children: React.ReactNode;
+    className?: string;
 }
 
-const Container: FunctionComponent<ContainerProps> = ({ children }) => {
-    return <div className="w-full max-w-screen-xl px-10 mx-auto">{children}</div>;
+const Container: FunctionComponent<ContainerProps> = ({ children, className }) => {
+    return <div className={cn('mx-auto w-full max-w-screen-xl px-10', className)}>{children}</div>;
 };
 
 interface ContentContainerProps {
@@ -15,7 +17,7 @@ interface ContentContainerProps {
 export const ContentContainer: FunctionComponent<ContentContainerProps> = ({ children }) => {
     return (
         <Container>
-            <div className="flex flex-col items-center justify-center w-full">{children}</div>
+            <div className="flex w-full flex-col items-center justify-center">{children}</div>
         </Container>
     );
 };

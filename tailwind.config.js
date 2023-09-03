@@ -1,12 +1,7 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { fontFamily } = require('tailwindcss/defaultTheme');
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        './app/**/*.{js,ts,jsx,tsx}',
-        './pages/**/*.{js,ts,jsx,tsx}',
-        './components/**/*.{js,ts,jsx,tsx}',
-    ],
+    darkMode: ['class'],
+    content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
     theme: {
         container: {
             center: true,
@@ -16,21 +11,56 @@ module.exports = {
             },
         },
         extend: {
-            animation: {
-                translateUpwards: 'translateUpwards 6s linear forwards',
-                zoomOut: 'zoomOut 6s linear infinite',
-            },
             colors: {
                 'aquapharma-blue': '#48dbfb',
+                border: 'hsl(var(--border))',
+                input: 'hsl(var(--input))',
+                ring: 'hsl(var(--ring))',
+                background: 'hsl(var(--background))',
+                foreground: 'hsl(var(--foreground))',
+                primary: {
+                    DEFAULT: 'hsl(var(--primary))',
+                    foreground: 'hsl(var(--primary-foreground))',
+                },
+                secondary: {
+                    DEFAULT: 'hsl(var(--secondary))',
+                    foreground: 'hsl(var(--secondary-foreground))',
+                },
+                destructive: {
+                    DEFAULT: 'hsl(var(--destructive))',
+                    foreground: 'hsl(var(--destructive-foreground))',
+                },
+                muted: {
+                    DEFAULT: 'hsl(var(--muted))',
+                    foreground: 'hsl(var(--muted-foreground))',
+                },
+                accent: {
+                    DEFAULT: 'hsl(var(--accent))',
+                    foreground: 'hsl(var(--accent-foreground))',
+                },
+                popover: {
+                    DEFAULT: 'hsl(var(--popover))',
+                    foreground: 'hsl(var(--popover-foreground))',
+                },
+                card: {
+                    DEFAULT: 'hsl(var(--card))',
+                    foreground: 'hsl(var(--card-foreground))',
+                },
             },
-            fontFamily: {
-                Montserrat: ['Montserrat', 'sans-serif'],
-                Epilogue: ['Epilogue', 'sans-serif'],
-            },
-            aspectRatio: {
-                '3/2': '3 / 2',
+            borderRadius: {
+                lg: 'var(--radius)',
+                md: 'calc(var(--radius) - 2px)',
+                sm: 'calc(var(--radius) - 4px)',
             },
             keyframes: {
+                'accordion-down': {
+                    from: { height: 0 },
+                    to: { height: 'var(--radix-accordion-content-height)' },
+                },
+                'accordion-up': {
+                    from: { height: 'var(--radix-accordion-content-height)' },
+                    to: { height: 0 },
+                },
                 translateUpwards: {
                     '0%': { transform: 'translateY(10%)' },
                     '100%': { transform: 'translateY(0)' },
@@ -39,11 +69,24 @@ module.exports = {
                     '100%': { transform: 'scale(1)' },
                 },
             },
+            fontFamily: {
+                Montserrat: ['Montserrat', 'sans-serif'],
+                Epilogue: ['Epilogue', 'sans-serif'],
+            },
+            aspectRatio: {
+                '3/2': '3 / 2',
+            },
+            animation: {
+                'accordion-down': 'accordion-down 0.2s ease-out',
+                'accordion-up': 'accordion-up 0.2s ease-out',
+                translateUpwards: 'translateUpwards 6s linear forwards',
+                zoomOut: 'zoomOut 6s linear infinite',
+            },
             gridTemplateColumns: {
                 'responsiveness-250px-columns': 'repeat(auto-fit, minmax(250px, 1fr))',
                 'responsiveness-350px-columns': 'repeat(auto-fit, minmax(350px, 1fr))',
             },
         },
     },
-    plugins: [],
+    plugins: [require('tailwindcss-animate')],
 };
