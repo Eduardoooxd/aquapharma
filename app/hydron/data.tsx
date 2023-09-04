@@ -1,7 +1,7 @@
+import { GenericCardProps } from '@/components/GenericCard/GenericCard';
 import { Atom, GlassWater, HeartPulse, Hourglass, Maximize2, PlusSquare } from 'lucide-react';
-import { HydronCardProps } from './HydronCard';
 
-export const HYDRON_CARDS: HydronCardProps[] = [
+export const HYDRON_CARDS: GenericCardProps[] = [
     {
         title: 'Combate o stress oxidativo',
         children: 'Ajuda a prevenir doenças e a evitar o envelhecimento prematuro.',

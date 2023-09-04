@@ -1,4 +1,5 @@
 import Container from '@/components/Container';
+import GenericCard from '@/components/GenericCard/GenericCard';
 import YoutubeVideo from '@/components/YoutubeVideo';
 import BackgroundHydronImage from '@/images/hydron/background.jpg';
 import HydronUnderBench from '@/images/hydron/hydron-baixo-banca.jpg';
@@ -6,7 +7,6 @@ import HydronOverBench from '@/images/hydron/hydron-sobre-banca.jpg';
 import HeroHydronImage from '@/images/hydron/hydron-transparente.png';
 import HydronBenefitsImage from '@/images/hydron/hydronReal.jpg';
 import Image from 'next/image';
-import HydronCard from './HydronCard';
 import { HYDRON_BENEFITS_TEXT, HYDRON_CARDS } from './data';
 
 export const metadata = {
@@ -47,7 +47,7 @@ async function HydronPage() {
             <Container className="flex flex-col gap-12">
                 <section className="grid grid-cols-responsiveness-350px-columns justify-center gap-4 pt-12">
                     {HYDRON_CARDS.map((card, idx) => (
-                        <HydronCard {...card} key={idx} />
+                        <GenericCard {...card} key={idx} />
                     ))}
                 </section>
 
