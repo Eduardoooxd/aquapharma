@@ -31,7 +31,7 @@ async function HydronPage() {
                     <Image
                         src={HeroHydronImage}
                         className={`h-auto w-full max-w-sm`}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        priority
                         alt="aquapharma hydron"
                     />
                     <div className="flex flex-col gap-10 text-center text-white ">
@@ -58,7 +58,7 @@ async function HydronPage() {
                     <article className="grid grid-cols-1 justify-between gap-10 lg:grid-cols-2">
                         <Image
                             src={HydronBenefitsImage}
-                            className={`h-auto w-full`}
+                            className={`h-auto w-full rounded`}
                             sizes="(max-width: 1080px) 100vw, 50vw"
                             alt="Beneficios da Hydron"
                         />
@@ -87,7 +87,7 @@ async function HydronPage() {
 
                     <Image
                         src={HydronOverBench}
-                        className={`h-auto w-full`}
+                        className={`h-auto w-full rounded`}
                         sizes="(max-width: 1080px) 100vw, 75vw"
                         alt="A Hydron é flexivel para ser instalada em qualquer dos lugares mais utilizados da sua casa"
                     />
@@ -106,7 +106,7 @@ async function HydronPage() {
                     <h4 className="text-3xl font-bold">Instalação debaixo da bancada</h4>
                     <Image
                         src={HydronUnderBench}
-                        className={`h-auto w-full`}
+                        className={`h-auto w-full rounded`}
                         sizes="(max-width: 1080px) 100vw, 50vw"
                         alt="A Hydron é possivel de ser instalada debaixo da banca, ligando a sua torneira"
                     />

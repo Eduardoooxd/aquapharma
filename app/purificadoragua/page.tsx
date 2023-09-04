@@ -33,7 +33,7 @@ async function WaterPurifierPage() {
                     <article className="grid grid-cols-1 justify-between gap-10 lg:grid-cols-2">
                         <Image
                             src={PurifierMainImage}
-                            className={`h-auto w-full`}
+                            className={`h-auto w-full rounded`}
                             sizes="(max-width: 1080px) 100vw, 50vw"
                             alt="Beneficios da Hydron"
                         />
@@ -83,7 +83,7 @@ async function WaterPurifierPage() {
                         </div>
                         <Image
                             src={GirlHoldingWaterImage}
-                            className={`h-auto w-full`}
+                            className={`h-auto w-full rounded`}
                             sizes="(max-width: 1080px) 100vw, 50vw"
                             alt="A purificador de água é a solução para trazer o melhor da sua saúde"
                         />
