@@ -1,4 +1,6 @@
 import { ENV_VARIABLES } from '@/config/env';
+import { NewContactEmail } from '@/emails/newContact';
+import { render } from '@react-email/render';
 import axios from 'axios';
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
@@ -18,17 +20,17 @@ const axiosInstance = axios.create({
 
 export async function POST(request: Request) {
     const body = await request.json();
-    const parsedBody = contactSchema.safeParse(body);
-    if (!parsedBody.success) {
+    const verifyBody = contactSchema.safeParse(body);
+    if (!verifyBody.success) {
         return NextResponse.json({ message: 'Wrong format for body' }, { status: 400 });
     }
 
-    const { name, email, message, phoneNumber } = contactSchema.parse(body);
+    const parsedBody = contactSchema.parse(body);
+    const { name, email, message, phoneNumber } = parsedBody;
 
-    /*
     if (process.env.NODE_ENV === 'development') {
         return NextResponse.json({ message: 'Sending Emails disabled for dev env' });
-    }*/
+    }
 
     const transporter = nodemailer.createTransport({
         host: CONTACT_HOST,
@@ -41,7 +43,7 @@ export async function POST(request: Request) {
         },
     });
 
-    const notificationToSend = `
+    const notificationBody = `
           \n
           Nome do contacto: ${name}
           Email: ${email}
@@ -50,16 +52,18 @@ export async function POST(request: Request) {
           \n
           `;
 
+    const emailHtml = render(NewContactEmail({ body: parsedBody }));
+
     try {
         // Send the email using the nodemailer transporter
         await transporter.sendMail({
             from: `${process.env.CONTACT_EMAIL}`,
             to: `${process.env.CONTACT_EMAIL}`,
             subject: 'Aquapharma | Novo Contacto 🥳',
-            html: notificationToSend,
+            html: emailHtml,
         });
 
-        axiosInstance.post('https://ntfy.sh/eduardo_notifications', notificationToSend);
+        axiosInstance.post('https://ntfy.sh/eduardo_notifications', notificationBody);
 
         return NextResponse.json({ message: 'Email sent successfully' });
     } catch (error) {
