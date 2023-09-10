@@ -1,35 +1,30 @@
-import Link from "next/link";
-import { FunctionComponent } from "react";
+import Link from 'next/link';
+import { FunctionComponent } from 'react';
 
 export interface NavbarLinkProps {
-	href: string;
-	text: string;
+    href: string;
+    text: string;
 }
 
 const NavbarLink: FunctionComponent<NavbarLinkProps> = ({ href, text }) => {
-	return (
-        (<Link
+    return (
+        <Link
             href={href}
-            className="uppercase font-Montserrat transition duration-200 ease-linear hover:underline shadow-2xl  hover:drop-shadow-2xl">
-
+            className="font-Montserrat uppercase shadow-2xl transition duration-200 ease-linear hover:underline hover:drop-shadow-2xl"
+        >
             {text}
-
-        </Link>)
+        </Link>
     );
 };
 
-export const HamburgerNavbarLink: FunctionComponent<NavbarLinkProps> = ({
-	href,
-	text,
-}) => {
-	return (
-        (<Link
+export const HamburgerNavbarLink: FunctionComponent<NavbarLinkProps> = ({ href, text }) => {
+    return (
+        <Link
             href={href}
-            className=" font-Montserrat w-4/5 mx-auto py-2 border-b text-left text-base uppercase transition duration-200 ease-linear hover:text-blue-600  hover:scale-105 hover:drop-shadow-2xl">
-
+            className="w-full border-b p-2 text-left font-Montserrat text-base uppercase transition duration-200 ease-linear hover:scale-105 hover:text-blue-600 hover:drop-shadow-2xl"
+        >
             {text}
-
-        </Link>)
+        </Link>
     );
 };
 

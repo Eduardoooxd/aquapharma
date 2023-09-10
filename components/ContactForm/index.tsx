@@ -1,145 +1,154 @@
 'use client';
-import { FunctionComponent, useState } from 'react';
 
-interface ContactFormInputProps {
-    name: string;
-    type: string;
-    value: string;
-    handler: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    placeholder: string;
-    required: boolean;
-    triedSubmission: boolean;
-    pattern?: string;
-    minLength?: number;
-    maxLength?: number;
-}
+import { ContactFormBody, contactSchema } from '@/app/api/contact/contract';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
+import { Loader2 } from 'lucide-react';
+import { useTransition } from 'react';
+import { useForm } from 'react-hook-form';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+import { toast } from '../ui/use-toast';
 
-const ContactFormInput: FunctionComponent<ContactFormInputProps> = ({
-    name,
-    type,
-    value,
-    handler,
-    placeholder,
-    required,
-    triedSubmission,
-    pattern,
-    minLength,
-    maxLength,
-}) => {
-    const [hasInteracted, setHasInteracted] = useState(false);
-    const invalidInputActionTrigger = hasInteracted || triedSubmission;
-
-    return (
-        <div className="w-full flex flex-col">
-            <input
-                name={name}
-                type={type}
-                value={value}
-                onChange={handler}
-                className={`peer py-5 drop-shadow-md px-10 bg-gray-300 ${
-                    invalidInputActionTrigger &&
-                    'invalid:border invalid:border-red-400 invalid:rounded'
-                }`}
-                placeholder={placeholder}
-                required={required}
-                onKeyDown={() => setHasInteracted(true)}
-                pattern={pattern}
-                minLength={minLength}
-                maxLength={maxLength}
-            />
-            {invalidInputActionTrigger ? (
-                <span className="mt-2 opacity-0 capitalize peer-invalid:opacity-100 text-red-400 transition-all">
-                    Introduza {placeholder} valido
-                </span>
-            ) : null}
-        </div>
-    );
-};
-
-interface ContactForm {
-    name: string;
-    email: string;
-    telephone: string;
-    message: string;
-}
-
-const ContactForm: FunctionComponent = () => {
-    const [contactForm, setContactForm] = useState<ContactForm>({
-        name: '',
-        email: '',
-        telephone: '',
-        message: '',
+const ContactForm = () => {
+    const contactFormSchema = useForm<ContactFormBody>({
+        resolver: zodResolver(contactSchema),
+        defaultValues: {
+            name: '',
+            email: '',
+            phoneNumber: '',
+            message: '',
+        },
     });
 
-    const [triedSubmission, setTriedSubmission] = useState(false);
+    const [isPending, startTransition] = useTransition();
 
-    const handleInputChange = (
-        event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ): void => {
-        const { name, value } = event.target;
-        setContactForm((prevContactForm) => {
-            return {
-                ...prevContactForm,
-                [name]: value,
-            };
-        });
-    };
+    const mutation = useMutation({
+        mutationFn: (body: ContactFormBody) => {
+            return axios.post(`/api/contact`, body);
+        },
+    });
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-        event.preventDefault();
-        console.log(contactForm);
+    const isLoading = isPending || mutation.isLoading;
+
+    const onSubmit = async (formValues: ContactFormBody) => {
+        try {
+            startTransition(() => {
+                mutation.mutate(formValues, {
+                    onSuccess: () => {
+                        // TODO Implement success
+                        toast({
+                            title: 'Mensagem enviada com sucesso',
+                            description: 'Entraremos em contacto consigo brevemente',
+                            variant: 'default',
+                        });
+                        contactFormSchema.reset();
+                    },
+                    onError: () => {
+                        toast({
+                            title: 'Erro ao enviar mensagem',
+                            description: 'Tente novamente brevemente',
+                            variant: 'destructive',
+                        });
+                    },
+                });
+            });
+        } catch (e) {
+            toast({
+                title: 'Erro ao enviar mensagem',
+                description: 'Tente novamente brevemente',
+                variant: 'destructive',
+            });
+            console.error('ContactForm::onSubmit produced error ' + e);
+        }
     };
 
     return (
-        <form onSubmit={handleSubmit} className="flex-1 gap-2 flex flex-col justify-center">
-            <ContactFormInput
-                name="name"
-                type="text"
-                handler={handleInputChange}
-                placeholder="Nome"
-                value={contactForm.name}
-                triedSubmission={triedSubmission}
-                required={true}
-                minLength={3}
-                maxLength={22}
-            />
-            <ContactFormInput
-                name="email"
-                type="email"
-                handler={handleInputChange}
-                triedSubmission={triedSubmission}
-                placeholder="Email"
-                value={contactForm.email}
-                required={true}
-            />
-            <ContactFormInput
-                name="telephone"
-                type="tel"
-                placeholder="Seu Telefone"
-                handler={handleInputChange}
-                value={contactForm.telephone}
-                triedSubmission={triedSubmission}
-                required={true}
-                pattern="[0-9]+"
-                minLength={9}
-                maxLength={9}
-            />
-
-            <textarea
-                name="message"
-                className="py-5 resize-none drop-shadow-md px-10 bg-gray-300 mb-10"
-                value={contactForm.message}
-                onChange={(event) => handleInputChange(event)}
-                placeholder="A sua Mensagem"
-            ></textarea>
-
-            <input
-                type="submit"
-                value="Enviar"
-                onClick={() => setTriedSubmission(true)}
-                className="drop-shadow-md hover:underline hover:drop-shadow-lg cursor-pointer text-xl py-5 px-10 hover:bg-gray-500 bg-gray-800 text-white transition-all"
-            />
-        </form>
+        <Form {...contactFormSchema}>
+            <form
+                onSubmit={contactFormSchema.handleSubmit(onSubmit)}
+                className="flex h-full flex-1 flex-col justify-between gap-4"
+            >
+                <FormField
+                    control={contactFormSchema.control}
+                    name="name"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <Input
+                                    disabled={isLoading}
+                                    type="text"
+                                    placeholder="O seu nome..."
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={contactFormSchema.control}
+                    name="email"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <Input
+                                    disabled={isLoading}
+                                    type="email"
+                                    placeholder="O seu email..."
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={contactFormSchema.control}
+                    name="phoneNumber"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <Input
+                                    type="tel"
+                                    disabled={isLoading}
+                                    placeholder="O seu numéro de telemovel..."
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                <FormField
+                    control={contactFormSchema.control}
+                    name="message"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <Textarea
+                                    disabled={isLoading}
+                                    placeholder="A sua mensagem"
+                                    {...field}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+                {isLoading ? (
+                    <Button disabled type="submit">
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Enviando mensagem
+                    </Button>
+                ) : (
+                    <Button type="submit">Enviar</Button>
+                )}
+            </form>
+        </Form>
     );
 };
 

@@ -11,18 +11,19 @@ export interface ProductProps {
 
 const Product: FunctionComponent<ProductProps> = ({ name, image, alt, link }) => {
     return (
-        <div className="gallery">
-            <Link href={link} legacyBehavior>
-                <Image
-                    className="aspect-[3/2] object-contain cursor-pointer hover:drop-shadow-2xl transition duration-300"
-                    src={image}
-                    width={300}
-                    height={200}
-                    alt={alt}
-                />
-            </Link>
+        <Link
+            className="flex flex-col items-center justify-center transition duration-300 hover:drop-shadow-2xl"
+            href={link}
+        >
+            <Image
+                className="aspect-[3/2] cursor-pointer object-contain "
+                src={image}
+                width={300}
+                height={200}
+                alt={alt}
+            />
             <h5 className="text-xl font-light">{name}</h5>
-        </div>
+        </Link>
     );
 };
 
