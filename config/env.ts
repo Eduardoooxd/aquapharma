@@ -9,4 +9,4 @@ const envSchema = z.object({
 
 export type envSchemaType = z.infer<typeof envSchema>;
 
-export const ENV_VARIABLES = envSchema.parse(process.env) satisfies envSchemaType;
+export const ENV_VARIABLES = envSchema.parse(process.env);
