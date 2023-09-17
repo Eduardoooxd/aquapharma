@@ -39,18 +39,17 @@ const ContactForm = () => {
             startTransition(() => {
                 mutation.mutate(formValues, {
                     onSuccess: () => {
-                        // TODO Implement success
                         toast({
-                            title: 'Mensagem enviada com sucesso',
-                            description: 'Entraremos em contacto consigo brevemente',
-                            variant: 'default',
+                            title: 'Mensagem enviada com sucesso !',
+                            description: 'Entraremos em contacto consigo brevemente.',
+                            variant: 'success',
                         });
                         contactFormSchema.reset();
                     },
                     onError: () => {
                         toast({
                             title: 'Erro ao enviar mensagem',
-                            description: 'Tente novamente brevemente',
+                            description: 'Tente novamente brevemente.',
                             variant: 'destructive',
                         });
                     },
@@ -59,7 +58,7 @@ const ContactForm = () => {
         } catch (e) {
             toast({
                 title: 'Erro ao enviar mensagem',
-                description: 'Tente novamente brevemente',
+                description: 'Tente novamente brevemente.',
                 variant: 'destructive',
             });
             console.error('ContactForm::onSubmit produced error ' + e);

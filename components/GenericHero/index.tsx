@@ -26,6 +26,7 @@ export default function GenericHero({
                     fill
                     style={{ objectFit: 'cover' }}
                     alt="Aquapharma Hydron Background Image"
+                    priority
                 />
             </div>
             {children}
