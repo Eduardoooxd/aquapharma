@@ -1,7 +1,6 @@
 import Providers from '@/components/Providers';
 import { Toaster } from '@/components/ui/toaster';
 import NextTopLoader from 'nextjs-toploader';
-import { Suspense } from 'react';
 import Footer from '../components/Footer';
 import GoToTopButton from '../components/GoToTopButton';
 import Navbar from '../components/Navbar';
@@ -33,9 +32,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
                 <Providers>
                     <Navbar />
                     <NextTopLoader />
-                    <Suspense>
-                        <main className="min-h-screen">{children}</main>
-                    </Suspense>
+                    <main className="min-h-screen">{children}</main>
                     <GoToTopButton />
                     <Footer />
                     <Toaster />

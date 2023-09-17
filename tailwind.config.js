@@ -68,6 +68,20 @@ module.exports = {
                 zoomOut: {
                     '100%': { transform: 'scale(1)' },
                 },
+                loaderSpinner: {
+                    '0%': {
+                        transform: 'rotate(0deg)',
+                        'box-shadow': '1px 5px 2px var(--light-blue)',
+                    },
+                    '50%': {
+                        transform: 'rotate(180deg)',
+                        'box-shadow': '1px 5px 2px var(--light-blue)',
+                    },
+                    '100%': {
+                        transform: 'rotate(360deg)',
+                        'box-shadow': '1px 5px 2px var(--light-blue)',
+                    },
+                },
             },
             fontFamily: {
                 Montserrat: ['Montserrat', 'sans-serif'],
@@ -81,6 +95,7 @@ module.exports = {
                 'accordion-up': 'accordion-up 0.2s ease-out',
                 translateUpwards: 'translateUpwards 6s linear forwards',
                 zoomOut: 'zoomOut 6s linear infinite',
+                loadingSpinner: 'loaderSpinner 5s linear infinite',
             },
             gridTemplateColumns: {
                 'responsiveness-250px-columns': 'repeat(auto-fit, minmax(250px, 1fr))',
