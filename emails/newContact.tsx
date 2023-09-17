@@ -19,23 +19,31 @@ export function NewContactEmail({ body }: NewContactEmailProps) {
             <Tailwind>
                 <Body>
                     <Container>
-                        <Heading className="relative flex gap-4">
+                        <Container className="flex flex-col items-center justify-center gap-4">
                             <Img
                                 src={`${baseUrl}/static/aquapharma-logo.jpg`}
                                 width="120"
                                 height="50"
                                 alt="Aquapharma logo"
                             />
-                            | Novo Contacto 🥳
-                        </Heading>
+                            <Heading className="text-3xl font-bold">Novo Contacto 🥳</Heading>
+                        </Container>
 
-                        <Text className="text-base leading-6">Nome do cliente: {name}</Text>
-                        <Text className="text-base leading-6">Email do cliente: {email}</Text>
-                        <Text className="text-base leading-6">
-                            Numéro do cliente: {phoneNumber}
-                        </Text>
+                        <Container className="flex flex-col items-center justify-center gap-4">
+                            <Text className="text-base leading-6">
+                                <b>Nome do cliente:</b> {name}
+                            </Text>
+                            <Text className="text-base leading-6">
+                                <b>Email do cliente:</b> {email}
+                            </Text>
+                            <Text className="text-base leading-6">
+                                <b>Numéro do cliente:</b> {phoneNumber}
+                            </Text>
 
-                        <Text>Mensagem do cliente: {message}</Text>
+                            <Text className="text-base leading-6">
+                                <b> Mensagem do cliente:</b> {message}
+                            </Text>
+                        </Container>
                     </Container>
                 </Body>
             </Tailwind>
