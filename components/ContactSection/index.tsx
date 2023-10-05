@@ -5,7 +5,11 @@ import SectionContent from '../SectionContent';
 import SectionTitle from '../SectionTitle';
 
 const ContactSubTitle = ({ text }: { text: string }) => {
-    return <h3 className="inline border-b border-solid  border-black pb-[2px] text-3xl">{text}</h3>;
+    return (
+        <h3 className="text-balance w-fit border-b  border-solid border-black pb-[2px] text-2xl lg:text-3xl">
+            {text}
+        </h3>
+    );
 };
 
 const ContactSection: FunctionComponent = () => {
@@ -14,9 +18,9 @@ const ContactSection: FunctionComponent = () => {
             <Container>
                 <SectionTitle>Contactos</SectionTitle>
 
-                <div className="grid items-center justify-center grid-cols-1 gap-24 lg:grid-cols-2">
+                <div className="grid grid-cols-1 items-center justify-center gap-12 lg:grid-cols-2 lg:gap-24">
                     <ContactForm />
-                    <div className="flex flex-col h-full gap-4">
+                    <div className="flex h-full flex-col gap-4">
                         <div>
                             <ContactSubTitle text="Queremos sempre falar consigo" />
                             <p className="mt-4 leading-10">

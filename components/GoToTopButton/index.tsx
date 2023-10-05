@@ -1,8 +1,9 @@
 'use client';
-import { FunctionComponent, useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
+import { useEffect, useState } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
 
-const GoToTopButton: FunctionComponent = () => {
+const GoToTopButton = () => {
     const OFFSET_TO_VISIBLE = 20;
     const [visible, setVisible] = useState(false);
 
@@ -24,11 +25,12 @@ const GoToTopButton: FunctionComponent = () => {
     return (
         <button
             onClick={scrollToTop}
-            className={`${
-                visible ? 'block' : 'invisible'
-            } group fixed bg-aquapharma-blue bottom-10 right-10 aspect-square w-10 rounded-lg flex justify-center items-center `}
+            className={cn(
+                'group fixed bottom-10 right-10 flex aspect-square w-10 items-center justify-center rounded-lg bg-aquapharma-blue transition-opacity animate-in ',
+                visible ? 'opacity-100' : 'opacity-0'
+            )}
         >
-            <FaArrowUp className="group-hover:scale-125 transition duration-300 text-white w-full " />
+            <FaArrowUp className="w-full text-white group-hover:scale-125 " />
         </button>
     );
 };

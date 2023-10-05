@@ -55,9 +55,9 @@ const HeroCarouselImages = ({ carouselItems }: HeroCarouselProps) => {
                         sizes="100vw"
                         style={{ objectFit: 'cover' }}
                     />
-                    <div className="absolute-center text-balance flex flex-col gap-4 text-center text-white">
-                        <h4 className="text-4xl font-bold">{title}</h4>
-                        <p className="text-lg">{description}</p>
+                    <div className="absolute-center text-balance flex w-full max-w-4xl flex-col gap-4 px-5 text-center text-white">
+                        <h4 className="text-3xl font-bold lg:text-4xl">{title}</h4>
+                        <p className="text-base lg:text-lg">{description}</p>
                     </div>
                 </section>
             ))}

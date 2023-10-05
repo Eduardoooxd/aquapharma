@@ -35,6 +35,7 @@
         "react-responsive": "^9.0.2",
         "react-responsive-carousel": "^3.2.23",
         "react-youtube": "^10.1.0",
+        "tailwind": "^4.0.0",
         "tailwind-merge": "^1.14.0",
         "tailwindcss-animate": "^1.0.7",
         "zod": "^3.22.2"
