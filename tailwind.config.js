@@ -69,7 +69,7 @@ module.exports = {
                     '0%': { transform: 'translateY(10%)' },
                     '100%': { transform: 'translateY(0)' },
                 },
-                zoomOut: {
+                zoomIn: {
                     '100%': { transform: 'scale(1)' },
                 },
                 loaderSpinner: {
@@ -98,7 +98,7 @@ module.exports = {
                 'accordion-down': 'accordion-down 0.2s ease-out',
                 'accordion-up': 'accordion-up 0.2s ease-out',
                 translateUpwards: 'translateUpwards 6s linear forwards',
-                zoomOut: 'zoomOut 6s linear infinite',
+                zoomIn: 'zoomIn 6s linear infinite',
                 loadingSpinner: 'loaderSpinner 5s linear infinite',
             },
             gridTemplateColumns: {

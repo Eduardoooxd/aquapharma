@@ -1,10 +1,14 @@
+import BackgroundImage1 from '@/assets/images/main-page-background/fundo1.jpg';
+import BackgroundImage2 from '@/assets/images/main-page-background/fundo2.jpg';
+import BackgroundImage3 from '@/assets/images/main-page-background/fundo3.jpg';
+import BackgroundImage4 from '@/assets/images/main-page-background/fundo4.jpg';
 import { HeroCarouselItemProps } from '../../../components/Hero';
 import { ProductsTypeProps } from '../../../components/ProductsSection';
 
 export const CAROUSEL_ITEMS: HeroCarouselItemProps[] = [
     {
         alt: '',
-        src: '/assets/images/main-page-background/fundo1.jpg',
+        image: BackgroundImage1,
         title: (
             <>
                 Transforme a sua água <br />
@@ -20,7 +24,7 @@ export const CAROUSEL_ITEMS: HeroCarouselItemProps[] = [
     },
     {
         alt: '',
-        src: '/assets/images/main-page-background/fundo2.jpg',
+        image: BackgroundImage2,
         title: (
             <>
                 Água <br />O bem mais precioso da sua vida !
@@ -35,7 +39,7 @@ export const CAROUSEL_ITEMS: HeroCarouselItemProps[] = [
     },
     {
         alt: '',
-        src: '/assets/images/main-page-background/fundo3.jpg',
+        image: BackgroundImage3,
         title: <>Nós somos o que bebemos</>,
         description: (
             <>
@@ -48,7 +52,7 @@ export const CAROUSEL_ITEMS: HeroCarouselItemProps[] = [
     },
     {
         alt: '',
-        src: '/assets/images/main-page-background/fundo4.jpg',
+        image: BackgroundImage4,
         title: (
             <>
                 {' '}

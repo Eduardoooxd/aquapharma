@@ -143,3 +143,7 @@ html::-webkit-scrollbar-thumb {
 .main-container {
     @apply mx-auto w-full max-w-screen-xl px-10;
 }
+
+.absolute-center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform;
+}
