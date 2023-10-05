@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import Product, { ProductProps } from '../Product';
+import ProductCard, { ProductProps } from '../ProductCard';
 
 type TypeProduct = 'SOLUÇÕES EMPRESARIAIS' | 'SOLUÇÕES DOMICILIARES';
 
@@ -13,9 +13,9 @@ const ProductsSection: FunctionComponent<ProductsTypeProps> = ({ type, products 
         <div className="flex flex-col gap-8 text-center">
             <h3 className="text-2xl">{type}</h3>
 
-            <div className="grid items-center justify-center gap-6 grid-cols-responsiveness-250px-columns">
+            <div className="grid grid-cols-responsiveness-250px-columns items-center justify-center gap-6">
                 {products.map((product, index) => (
-                    <Product key={index} {...product} />
+                    <ProductCard key={index} {...product} />
                 ))}
             </div>
         </div>

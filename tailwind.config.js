@@ -12,7 +12,7 @@ module.exports = {
         },
         extend: {
             colors: {
-                'aquapharma-blue': '#48dbfb',
+                'aquapharma-blue': 'var(--light-blue)',
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
@@ -55,6 +55,9 @@ module.exports = {
                 lg: 'var(--radius)',
                 md: 'calc(var(--radius) - 2px)',
                 sm: 'calc(var(--radius) - 4px)',
+            },
+            dropShadow: {
+                'xl-aquapharma-blue': '0 15px 15px var(--light-blue)',
             },
             keyframes: {
                 'accordion-down': {

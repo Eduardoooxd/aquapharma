@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FunctionComponent } from 'react';
 
 export interface ProductProps {
     name: string;
@@ -9,10 +8,10 @@ export interface ProductProps {
     link: string;
 }
 
-const Product: FunctionComponent<ProductProps> = ({ name, image, alt, link }) => {
+const ProductCard = ({ name, image, alt, link }: ProductProps) => {
     return (
         <Link
-            className="flex flex-col items-center justify-center transition duration-300 hover:drop-shadow-2xl"
+            className="flex flex-col items-center justify-center transition duration-300 hover:drop-shadow-xl-aquapharma-blue"
             href={link}
         >
             <Image
@@ -27,4 +26,4 @@ const Product: FunctionComponent<ProductProps> = ({ name, image, alt, link }) =>
     );
 };
 
-export default Product;
+export default ProductCard;

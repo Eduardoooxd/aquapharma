@@ -52,6 +52,7 @@ const HeroCarouselImages = ({ carouselItems }: HeroCarouselProps) => {
                         aria-hidden={!isIndexOfVisibleImage(index)}
                         src={image}
                         alt={alt}
+                        quality={100}
                         sizes="100vw"
                         style={{ objectFit: 'cover' }}
                     />
