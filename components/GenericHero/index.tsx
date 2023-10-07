@@ -5,12 +5,14 @@ interface GenericHeroProps {
     backgroundImage: StaticImageData;
     children?: React.ReactNode;
     className?: string;
+    backgroundPosition?: string;
 }
 
 export default function GenericHero({
     backgroundImage,
     children,
     className,
+    backgroundPosition,
     ...props
 }: GenericHeroProps) {
     return (
@@ -24,7 +26,8 @@ export default function GenericHero({
                     className={`absolute h-auto w-full`}
                     sizes="100vw"
                     fill
-                    style={{ objectFit: 'cover' }}
+                    quality={100}
+                    style={{ objectFit: 'cover', objectPosition: backgroundPosition }}
                     alt="Aquapharma Hydron Background Image"
                     priority
                 />

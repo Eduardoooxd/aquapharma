@@ -58,6 +58,7 @@ module.exports = {
             },
             dropShadow: {
                 'xl-aquapharma-blue': '0 5px 15px var(--light-blue)',
+                'text-outline': '0 1.5px 1.5px rgba(0 , 0, 0, 0.9)',
             },
             keyframes: {
                 'accordion-down': {

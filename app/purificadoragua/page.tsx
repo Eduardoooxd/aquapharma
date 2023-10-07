@@ -50,7 +50,7 @@ async function WaterPurifierPage() {
                             </div>
                             <ul className="flex flex-1 flex-col justify-between gap-4 pl-5">
                                 {PURIFIER_OPTIONS.map((text) => (
-                                    <li className="list-disc">
+                                    <li key={text} className="list-disc">
                                         <p className="text-sm font-light">{text}</p>
                                     </li>
                                 ))}

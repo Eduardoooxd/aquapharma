@@ -8,8 +8,8 @@ const AquapharmaValues: FunctionComponent = () => {
 
     return (
         <ul className="inline-flex gap-x-4 lg:gap-x-8">
-            {AQUAPHARMA_VALUES.map((value, index) => (
-                <li className="list-inside list-disc text-sm lg:text-lg" key={index}>
+            {AQUAPHARMA_VALUES.map((value) => (
+                <li className="text-sm list-disc list-inside lg:text-lg" key={value}>
                     {value}
                 </li>
             ))}

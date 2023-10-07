@@ -17,7 +17,7 @@ export default function GenericCard({
     return (
         <div
             className={cn(
-                'flex flex-col items-center justify-center gap-2 px-3 py-5 text-center',
+                'text-balance flex flex-col items-center justify-center gap-2 px-3 py-5 text-center',
                 classname
             )}
             {...props}
