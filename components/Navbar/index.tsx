@@ -1,89 +1,129 @@
 'use client';
 
+import AquapharmaLogo from '@/assets/images/logo/logo.png';
+import { useDisableBodyScroll } from '@/hooks/disableBackgroundMoving';
+import { useNextNavigationEvent } from '@/hooks/useNextNavigationEvent';
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FunctionComponent, useEffect, useRef } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import Container from '../Container';
-import HamburgerMenu from '../HamburgerMenu';
-import NavbarLink, { NavbarLinkProps } from '../NavbarLink';
+import NavbarLink, { MobileNavbarLink } from '../NavbarLink';
+import { NAVBAR_LINKS } from './data';
 
-const Navbar: FunctionComponent = () => {
-    const navBarLinks: NavbarLinkProps[] = [
-        {
-            href: '#about',
-            text: 'A nossa missão',
-        },
-        {
-            href: './produtos',
-            text: 'Produtos',
-        },
-        {
-            href: '#contact',
-            text: 'Contactos',
-        },
-    ];
+const Navbar = () => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
 
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+    useDisableBodyScroll({ isNavBarOpen: menuOpen });
 
-    const navBarRef = useRef<HTMLInputElement>(null);
+    const closeMobileMenu = () => setMenuOpen(false);
+
+    useNextNavigationEvent({ routeChangedCallback: closeMobileMenu });
 
     useEffect(() => {
-        // Set up a scroll event listener
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
+
         window.addEventListener('scroll', handleScroll);
 
-        // Clean up the event listener when the component is unmounted
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     });
 
-    const handleScroll = () => {
-        const navBar = navBarRef.current;
-        if (navBar === null) return;
-
-        if (window.scrollY > 20) {
-            navBar.classList.add('sticky--nav');
-        } else {
-            navBar.classList.remove('sticky--nav');
-        }
-    };
-
-    const DesktopMenu = () => (
-        <div className="flex gap-x-6 text-white">
-            {navBarLinks.map((link, index) => (
-                <NavbarLink key={index} {...link} />
-            ))}
-        </div>
-    );
-
     return (
         <nav
-            ref={navBarRef}
-            className="fixed bg-transparent w-full py-8 top-0 z-50 transition-all ease-linear duration-300 overflow-x-hidden flex justify-center"
+            className={cn(
+                'fixed top-0 left-0 z-50 w-full overflow-x-hidden py-8 transition-colors duration-300 ease-linear',
+                `${isScrolled || menuOpen ? 'bg-white shadow-md' : 'bg-transparent'}`,
+                `${menuOpen ? 'inset-0 flex flex-col gap-8' : ''}`
+            )}
         >
             <Container>
-                <div className="w-full flex justify-between items-center">
-                    <div>
-                        <Link href="/">
-                            <Image
-                                priority
-                                src="/assets/images/logo/logo.jpg"
-                                alt="Logo da Aquapharma"
-                                height={70}
-                                width={170}
-                                className="object-contain "
-                            />
-                        </Link>
-                    </div>
-                    {isTabletOrMobile ? (
-                        <HamburgerMenu navBarLinks={navBarLinks} />
-                    ) : (
-                        <DesktopMenu />
-                    )}
+                <div className="flex w-full items-center justify-between">
+                    <Link className="relative block" href="/">
+                        <Image
+                            priority
+                            src={AquapharmaLogo}
+                            sizes="100vw"
+                            alt="Logo da Aquapharma"
+                            className="h-auto w-full max-w-[8rem] lg:max-w-[10rem]"
+                        />
+                    </Link>
+                    <MobileMenu
+                        className={cn('block lg:hidden')}
+                        menuOpen={menuOpen}
+                        setMenuOpen={setMenuOpen}
+                    />
+                    <DesktopMenu
+                        className={cn(
+                            'hidden lg:flex',
+                            `${isScrolled ? 'text-black' : 'text-white'}`
+                        )}
+                    />
                 </div>
             </Container>
+            <div className={cn('lg:hidden', `${menuOpen ? 'border-t border-black' : 'hidden'}`)}>
+                <div className={cn(`flex w-full flex-col`)}>
+                    {NAVBAR_LINKS.map((link, index) => (
+                        <MobileNavbarLink key={index} closeMobileMenu={closeMobileMenu} {...link} />
+                    ))}
+                </div>
+            </div>
         </nav>
+    );
+};
+
+const DesktopMenu = ({ className }: { className?: string }) => (
+    <div className={cn('flex gap-x-6', className)}>
+        {NAVBAR_LINKS.map((link, index) => (
+            <NavbarLink key={index} {...link} />
+        ))}
+    </div>
+);
+
+const MobileMenu = ({
+    className,
+    menuOpen,
+    setMenuOpen,
+}: {
+    className?: string;
+    menuOpen: boolean;
+    setMenuOpen: Dispatch<SetStateAction<boolean>>;
+}) => {
+    return (
+        <>
+            <div className={cn('flex h-full items-center', className)}>
+                <button
+                    onClick={() => setMenuOpen((prevValue) => !prevValue)}
+                    className={cn('block text-aquapharma-blue')}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        {menuOpen ? (
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        ) : (
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M4 6h16M4 12h16m-7 6h7"
+                            />
+                        )}
+                    </svg>
+                </button>
+            </div>
+        </>
     );
 };
 

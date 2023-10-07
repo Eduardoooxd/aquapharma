@@ -1,15 +1,14 @@
-import { FunctionComponent } from 'react';
 import Container from '../Container';
 import SectionContent from '../SectionContent';
 import SectionTitle from '../SectionTitle';
 
-const AquapharmaValues: FunctionComponent = () => {
+const AquapharmaValues = () => {
     const AQUAPHARMA_VALUES = ['Visionários', 'Atenciosos', 'Compaixão'];
 
     return (
         <ul className="inline-flex gap-x-4 lg:gap-x-8">
             {AQUAPHARMA_VALUES.map((value) => (
-                <li className="text-sm list-disc list-inside lg:text-lg" key={value}>
+                <li className="list-inside list-disc text-sm lg:text-lg" key={value}>
                     {value}
                 </li>
             ))}
@@ -17,11 +16,9 @@ const AquapharmaValues: FunctionComponent = () => {
     );
 };
 
-interface AboutProps {}
-
-const About: FunctionComponent<AboutProps> = () => {
+const AboutSection = () => {
     return (
-        <SectionContent>
+        <SectionContent id="about">
             <Container>
                 <SectionTitle>A nossa missão</SectionTitle>
                 <div className="flex flex-col gap-4 ">
@@ -43,4 +40,4 @@ const About: FunctionComponent<AboutProps> = () => {
     );
 };
 
-export default About;
+export default AboutSection;

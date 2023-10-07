@@ -1,4 +1,3 @@
-import { FunctionComponent } from 'react';
 import ContactForm from '../ContactForm';
 import Container from '../Container';
 import SectionContent from '../SectionContent';
@@ -12,9 +11,9 @@ const ContactSubTitle = ({ text }: { text: string }) => {
     );
 };
 
-const ContactSection: FunctionComponent = () => {
+const ContactSection = () => {
     return (
-        <SectionContent>
+        <SectionContent id="contact">
             <Container>
                 <SectionTitle>Contactos</SectionTitle>
 

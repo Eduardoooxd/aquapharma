@@ -69,7 +69,7 @@ const ContactForm = () => {
         <Form {...contactFormSchema}>
             <form
                 onSubmit={contactFormSchema.handleSubmit(onSubmit)}
-                className="flex h-full flex-1 flex-col justify-between gap-4"
+                className="flex h-full w-full flex-1 flex-col justify-between gap-4"
             >
                 <FormField
                     control={contactFormSchema.control}

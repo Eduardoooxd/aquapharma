@@ -1,4 +1,4 @@
-import LogoImage from '@/assets/images/logo/logo.jpg';
+import LogoImage from '@/assets/images/logo/logo.png';
 import Image from 'next/image';
 
 export default function InitialLoadingBar() {

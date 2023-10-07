@@ -1,12 +1,11 @@
 import Link from 'next/link';
-import { FunctionComponent } from 'react';
 
 export interface NavbarLinkProps {
     href: string;
     text: string;
 }
 
-const NavbarLink: FunctionComponent<NavbarLinkProps> = ({ href, text }) => {
+const NavbarLink = ({ href, text }: NavbarLinkProps) => {
     return (
         <Link
             href={href}
@@ -17,11 +16,18 @@ const NavbarLink: FunctionComponent<NavbarLinkProps> = ({ href, text }) => {
     );
 };
 
-export const HamburgerNavbarLink: FunctionComponent<NavbarLinkProps> = ({ href, text }) => {
+export interface MobileNavbarLinkProps {
+    href: string;
+    text: string;
+    closeMobileMenu: () => void;
+}
+
+export const MobileNavbarLink = ({ href, text, closeMobileMenu }: MobileNavbarLinkProps) => {
     return (
         <Link
             href={href}
-            className="w-full border-b p-2 text-left font-Montserrat text-base uppercase transition duration-200 ease-linear hover:scale-105 hover:text-blue-600 hover:drop-shadow-2xl"
+            onClick={() => closeMobileMenu()}
+            className="w-full border-b border-black px-1 py-4 text-left font-Montserrat text-base uppercase transition duration-200 ease-linear hover:text-aquapharma-blue hover:drop-shadow-2xl"
         >
             {text}
         </Link>
