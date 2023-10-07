@@ -9,7 +9,7 @@ interface ProductsContainerProps {
 
 const ProductsContainer = ({ productsTypes }: ProductsContainerProps) => {
     return (
-        <SectionContent>
+        <SectionContent id="products">
             <Container>
                 <SectionTitle>OS NOSSOS PRODUTOS</SectionTitle>
 

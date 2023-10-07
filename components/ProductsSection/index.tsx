@@ -1,4 +1,3 @@
-import { FunctionComponent } from 'react';
 import ProductCard, { ProductProps } from '../ProductCard';
 
 type TypeProduct = 'SOLUÇÕES EMPRESARIAIS' | 'SOLUÇÕES DOMICILIARES';
@@ -8,7 +7,7 @@ export interface ProductsTypeProps {
     products: ProductProps[];
 }
 
-const ProductsSection: FunctionComponent<ProductsTypeProps> = ({ type, products }) => {
+const ProductsSection = ({ type, products }: ProductsTypeProps) => {
     return (
         <div className="flex flex-col gap-8 text-center">
             <h3 className="text-2xl">{type}</h3>

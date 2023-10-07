@@ -19,7 +19,7 @@ const ContactSection = () => {
 
                 <div className="grid grid-cols-1 items-center justify-center gap-12 lg:grid-cols-2 lg:gap-24">
                     <ContactForm />
-                    <div className="flex h-full flex-col gap-4">
+                    <div className="flex h-full flex-col gap-4 ">
                         <div>
                             <ContactSubTitle text="Queremos sempre falar consigo" />
                             <p className="mt-4 leading-10">

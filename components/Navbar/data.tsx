@@ -6,7 +6,7 @@ export const NAVBAR_LINKS: NavbarLinkProps[] = [
         text: 'A nossa missão',
     },
     {
-        href: '/produtos',
+        href: '/#products',
         text: 'Produtos',
     },
     {
