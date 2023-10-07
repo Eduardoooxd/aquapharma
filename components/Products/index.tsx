@@ -1,14 +1,13 @@
-import { FunctionComponent } from 'react';
 import Container from '../Container';
 import ProductsSection, { ProductsTypeProps } from '../ProductsSection';
 import SectionContent from '../SectionContent';
 import SectionTitle from '../SectionTitle';
 
-interface ProductSectionsProps {
+interface ProductsContainerProps {
     productsTypes: ProductsTypeProps[];
 }
 
-const Products: FunctionComponent<ProductSectionsProps> = ({ productsTypes }) => {
+const ProductsContainer = ({ productsTypes }: ProductsContainerProps) => {
     return (
         <SectionContent>
             <Container>
@@ -24,4 +23,4 @@ const Products: FunctionComponent<ProductSectionsProps> = ({ productsTypes }) =>
     );
 };
 
-export default Products;
+export default ProductsContainer;

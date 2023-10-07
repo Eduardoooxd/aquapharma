@@ -57,7 +57,7 @@ module.exports = {
                 sm: 'calc(var(--radius) - 4px)',
             },
             dropShadow: {
-                'xl-aquapharma-blue': '0 15px 15px var(--light-blue)',
+                'xl-aquapharma-blue': '0 5px 15px var(--light-blue)',
             },
             keyframes: {
                 'accordion-down': {

@@ -1,9 +1,9 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 
 export interface ProductProps {
     name: string;
-    image: string;
+    image: StaticImageData;
     alt: string;
     link: string;
 }
@@ -11,11 +11,11 @@ export interface ProductProps {
 const ProductCard = ({ name, image, alt, link }: ProductProps) => {
     return (
         <Link
-            className="flex flex-col items-center justify-center transition duration-300 hover:drop-shadow-xl-aquapharma-blue"
+            className="group flex flex-col items-center justify-center gap-4 transition duration-300"
             href={link}
         >
             <Image
-                className="aspect-[3/2] cursor-pointer object-contain "
+                className="aspect-[3/2] cursor-pointer object-contain group-hover:drop-shadow-xl-aquapharma-blue"
                 src={image}
                 width={300}
                 height={200}

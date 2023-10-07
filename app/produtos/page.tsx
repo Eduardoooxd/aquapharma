@@ -1,4 +1,4 @@
-import Products from '../../components/Products';
+import ProductsSection from '../../components/Products';
 import { ProductsSectionData } from '../../public/assets/data';
 
 export const metadata = {
@@ -6,7 +6,7 @@ export const metadata = {
 };
 
 async function ProductsPage() {
-    return <Products productsTypes={ProductsSectionData} />;
+    return <ProductsSection productsTypes={ProductsSectionData} />;
 }
 
 export default ProductsPage;

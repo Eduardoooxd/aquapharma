@@ -2,7 +2,7 @@ import About from '../components/About';
 import ContactSection from '../components/ContactSection';
 import HeroCarouselImages from '../components/Hero';
 import Map from '../components/Map';
-import Products from '../components/Products';
+import ProductsSection from '../components/Products';
 import { CAROUSEL_ITEMS, ProductsSectionData } from '../public/assets/data';
 
 export default async function RootPage() {
@@ -10,7 +10,7 @@ export default async function RootPage() {
         <>
             <HeroCarouselImages carouselItems={CAROUSEL_ITEMS} />
             <About />
-            <Products productsTypes={ProductsSectionData} />
+            <ProductsSection productsTypes={ProductsSectionData} />
             <ContactSection />
             <Map />
         </>

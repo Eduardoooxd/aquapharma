@@ -1,7 +1,11 @@
+import HydronProductImage from '@/assets/images/hydron/hydron-transparente.png';
+import KMZeroProductImage from '@/assets/images/kmzero/kmzero-transparente.png';
+import LaundryProProductImage from '@/assets/images/laundry-pro/laundry-pro.png';
 import BackgroundImage1 from '@/assets/images/main-page-background/fundo1.jpg';
 import BackgroundImage2 from '@/assets/images/main-page-background/fundo2.jpg';
 import BackgroundImage3 from '@/assets/images/main-page-background/fundo3.jpg';
 import BackgroundImage4 from '@/assets/images/main-page-background/fundo4.jpg';
+import PurifierProductImage from '@/assets/images/purificadorAgua/purificador_agua.png';
 import { HeroCarouselItemProps } from '../../../components/Hero';
 import { ProductsTypeProps } from '../../../components/ProductsSection';
 
@@ -76,7 +80,7 @@ export const ProductsSectionData: ProductsTypeProps[] = [
         products: [
             {
                 name: 'Água KMZERO',
-                image: '/assets/images/products/kmzero/kmzero.png',
+                image: KMZeroProductImage,
                 alt: 'Solução empresarial água kmzero',
                 link: 'kmzero',
             },
@@ -87,19 +91,19 @@ export const ProductsSectionData: ProductsTypeProps[] = [
         products: [
             {
                 name: 'Hydron',
-                image: '/assets/images/products/hydron/hydron.png',
+                image: HydronProductImage,
                 alt: 'Solução domiciliar Hydron',
                 link: 'hydron',
             },
             {
                 name: 'Purificadores',
-                image: '/assets/images/products/advance/advance2.png',
+                image: PurifierProductImage,
                 alt: 'Solução domiciliares de Purificadores de água',
                 link: 'purificadoragua',
             },
             {
                 name: 'Laundry Pro',
-                image: '/assets/images/products/laundry-pro/laundry-pro.png',
+                image: LaundryProProductImage,
                 alt: 'Solução domiciliar Laundry Pro',
                 link: 'laundry',
             },
