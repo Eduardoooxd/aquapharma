@@ -11,6 +11,8 @@ import { LAUNDRY_CARDS, LAUNDRY_DETAILS } from './data';
 
 export const metadata = {
     title: 'Laundry',
+    description:
+        'LAUNDRY PRO 2.0 | A solução inteligente para lavar e limpar sem quimicos, com poupança imediata em cada utilização.',
 };
 
 async function LaundryPage() {

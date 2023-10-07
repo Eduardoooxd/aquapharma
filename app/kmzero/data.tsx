@@ -2,7 +2,7 @@ import { GenericCardProps } from '@/components/GenericCard/GenericCard';
 import { HeartPulse, Leaf, PiggyBank, PlusSquare } from 'lucide-react';
 
 export const KMZERO_WATER_BENEFITS = [
-    'A Água KMZERO foi feita para suprimir a demanda dos negócios ligados à restauração, dando-lhes a água com a melhor qualidade para consumo, assim como uma personalização extraordinária das suas garrafas 100% ecológicas',
+    'A Água KMZERO foi feita para suprimir a demanda dos negócios ligados à restauração, dando-lhes a água com a melhor qualidade para consumo, assim como uma personalização extraordinária das suas garrafas 100% ecológicas.',
     'A utilização da Água KMZERO pressupõe deixar de lado os custos relacionados com os intermediários, acabando com os problemas de stock e armazenamento, colaborando para um planeta mais sustentável.',
     'Com a Água KMZERO irá ter no momento água normal, fria ou com gás, dando espaço e um toque profissional ao seu atendimento e conquistando os seus clientes.',
     'Se é um profissional da hotelaria ou restauração fale connosco. Temos para si as melhores opções que se adequam na íntegra ao seu negócio.',

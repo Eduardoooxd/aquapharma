@@ -9,6 +9,8 @@ import { AQUAPHARMA_MODEL_EXPLAINED, PURIFIER_OPTIONS, WATER_PURIFIER_CARDS } fr
 
 export const metadata = {
     title: 'Purificador Água',
+    description:
+        'A água mais saudável e que cumpre todos os requisitos de qualidade, mas também com uma excelência e requinte únicos. A equipa da Aquapharma apresenta-lhe as melhores propostas para o seu tipo de negócio.',
 };
 
 async function WaterPurifierPage() {

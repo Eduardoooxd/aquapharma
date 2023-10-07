@@ -11,6 +11,8 @@ import { HYDRON_BENEFITS_TEXT, HYDRON_CARDS } from './data';
 
 export const metadata = {
     title: 'Hydron',
+    description:
+        'Elimine os radicais livres com o equipamento de água hidrogenada mais completo do mercado.',
 };
 
 async function HydronPage() {

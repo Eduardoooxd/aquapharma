@@ -9,6 +9,8 @@ import { KMZERO_CARDS, KMZERO_DESCRIPTION, KMZERO_WATER_BENEFITS } from './data'
 
 export const metadata = {
     title: 'KMZero',
+    description:
+        'A Água KMZERO foi feita para suprimir a demanda dos negócios ligados à restauração, dando-lhes a água com a melhor qualidade para consumo, assim como uma personalização extraordinária das suas garrafas 100% ecológicas.',
 };
 
 async function KMZeroPage() {
