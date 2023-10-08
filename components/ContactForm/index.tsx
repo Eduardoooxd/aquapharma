@@ -139,12 +139,14 @@ const ContactForm = () => {
                     )}
                 />
                 {isLoading ? (
-                    <Button disabled type="submit">
+                    <Button aria-label="Enviando mensagem" disabled type="submit">
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         Enviando mensagem
                     </Button>
                 ) : (
-                    <Button type="submit">Enviar</Button>
+                    <Button aria-label="Enviar mensagem de contacto" type="submit">
+                        Enviar
+                    </Button>
                 )}
             </form>
         </Form>

@@ -12,6 +12,7 @@ const Footer = () => {
                     <div className="order-first flex items-center justify-center gap-10 self-center sm:order-last">
                         <a
                             target="_blank"
+                            aria-label="Descubra mais informaçoes sobre a Aquapharma no Facebook"
                             href="https://www.facebook.com/people/AQUAPHARMA/100086990934527/"
                         >
                             <FaFacebook
@@ -21,6 +22,7 @@ const Footer = () => {
                         </a>
                         <a target="_blank" href="https://www.instagram.com/_aquapharma/">
                             <FaInstagram
+                                aria-label="Descubra mais informaçoes sobre a Aquapharma no Instagram"
                                 className="transition duration-300 hover:scale-125 hover:text-aquapharma-blue"
                                 size={'1.5rem'}
                             />
