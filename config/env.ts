@@ -2,6 +2,7 @@ import * as z from 'zod';
 
 const envSchema = z.object({
     CONTACT_HOST: z.string(),
+    CONTACT_RECEIVER: z.string(),
     CONTACT_EMAIL: z.string(),
     CONTACT_PASSWORD: z.string(),
     NTFY_TOPIC_URL: z.string(),

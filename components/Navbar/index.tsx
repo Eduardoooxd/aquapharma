@@ -96,7 +96,7 @@ const MobileMenu = ({
             <div className={cn('flex h-full items-center', className)}>
                 <button
                     onClick={() => setMenuOpen((prevValue) => !prevValue)}
-                    className={cn('block text-aquapharma-blue')}
+                    className={cn('block text-black')}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

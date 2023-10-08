@@ -6,7 +6,8 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { contactSchema } from './contract';
 
-const { CONTACT_HOST, CONTACT_EMAIL, CONTACT_PASSWORD, NTFY_TOPIC_URL } = ENV_VARIABLES;
+const { CONTACT_HOST, CONTACT_EMAIL, CONTACT_RECEIVER, CONTACT_PASSWORD, NTFY_TOPIC_URL } =
+    ENV_VARIABLES;
 
 const axiosInstance = axios.create({
     baseURL: NTFY_TOPIC_URL,
@@ -57,9 +58,9 @@ export async function POST(request: Request) {
     try {
         // Send the email using the nodemailer transporter
         await transporter.sendMail({
-            from: `${process.env.CONTACT_EMAIL}`,
-            to: `${process.env.CONTACT_EMAIL}`,
-            subject: 'Aquapharma | Novo Contacto 🥳',
+            from: CONTACT_EMAIL,
+            to: CONTACT_RECEIVER,
+            subject: 'Aquapharma | Novo Contacto',
             html: emailHtml,
         });
 

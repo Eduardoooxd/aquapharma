@@ -10,13 +10,13 @@ const Footer = () => {
                 <div className="flex flex-col items-center justify-around gap-10 lg:flex-row">
                     <p>Aquapharma | 2018 - {currentYear}</p>
                     <div className="order-first flex items-center justify-center gap-10 self-center sm:order-last">
-                        <a href="#">
+                        <a href="https://www.facebook.com/people/AQUAPHARMA/100086990934527/">
                             <FaFacebook
                                 className="transition duration-300 hover:scale-125 hover:text-aquapharma-blue"
                                 size={'1.5rem'}
                             />
                         </a>
-                        <a href="#">
+                        <a href="https://www.instagram.com/_aquapharma/">
                             <FaInstagram
                                 className="transition duration-300 hover:scale-125 hover:text-aquapharma-blue"
                                 size={'1.5rem'}
