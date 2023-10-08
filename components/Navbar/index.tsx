@@ -12,7 +12,7 @@ import NavbarLink, { MobileNavbarLink } from '../NavbarLink';
 import { NAVBAR_LINKS } from './data';
 
 const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(window.scrollY > 50);
     const [menuOpen, setMenuOpen] = useState(false);
 
     useDisableBodyScroll({ isNavBarOpen: menuOpen });
@@ -25,7 +25,6 @@ const Navbar = () => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
 
         window.addEventListener('scroll', handleScroll);
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
@@ -95,6 +94,10 @@ const MobileMenu = ({
         <>
             <div className={cn('flex h-full items-center', className)}>
                 <button
+                    role="navigation"
+                    aria-label={`${
+                        menuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'
+                    }`}
                     onClick={() => setMenuOpen((prevValue) => !prevValue)}
                     className={cn('block text-black')}
                 >
