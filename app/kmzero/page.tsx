@@ -37,8 +37,10 @@ async function KMZeroPage() {
                             alt="KM Zero proporciona a melhor qualidade possivel aos seus clientes"
                         />
                         <div className="flex flex-col justify-between gap-2">
-                            {KMZERO_WATER_BENEFITS.map((line) => (
-                                <p className="text-base">{line}</p>
+                            {KMZERO_WATER_BENEFITS.map((line, index) => (
+                                <p key={index} className="text-base">
+                                    {line}
+                                </p>
                             ))}
                         </div>
                     </article>
@@ -62,8 +64,10 @@ async function KMZeroPage() {
                     </h3>
                     <article className="grid grid-cols-1 justify-between gap-10 lg:grid-cols-2">
                         <div className="flex flex-col justify-evenly gap-4">
-                            {KMZERO_DESCRIPTION.map((line) => (
-                                <p className="text-base font-light">{line}</p>
+                            {KMZERO_DESCRIPTION.map((line, index) => (
+                                <p key={index} className="text-base font-light">
+                                    {line}
+                                </p>
                             ))}
                         </div>
 

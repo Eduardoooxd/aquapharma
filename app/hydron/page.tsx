@@ -65,8 +65,10 @@ async function HydronPage() {
                             alt="Beneficios da Hydron"
                         />
                         <div className="flex flex-col justify-between gap-4">
-                            {HYDRON_BENEFITS_TEXT.map((line) => (
-                                <p className="text-base font-light"> {line} </p>
+                            {HYDRON_BENEFITS_TEXT.map((line, index) => (
+                                <p key={index} className="text-base font-light">
+                                    {line}
+                                </p>
                             ))}
                         </div>
                     </article>

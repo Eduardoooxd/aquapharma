@@ -79,8 +79,11 @@ async function WaterPurifierPage() {
                     </h3>
                     <article className="grid grid-cols-1 justify-between gap-10 lg:grid-cols-2">
                         <div className="flex flex-col justify-evenly gap-4">
-                            {AQUAPHARMA_MODEL_EXPLAINED.map((line) => (
-                                <p className="text-base font-light"> {line} </p>
+                            {AQUAPHARMA_MODEL_EXPLAINED.map((line, index) => (
+                                <p key={index} className="text-base font-light">
+                                    {' '}
+                                    {line}{' '}
+                                </p>
                             ))}
                         </div>
                         <Image
