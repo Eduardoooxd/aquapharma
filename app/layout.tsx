@@ -1,6 +1,8 @@
+import LoadingSpinner from '@/components/LoadingSpinner';
 import Providers from '@/components/Providers';
 import { Toaster } from '@/components/ui/toaster';
 import NextTopLoader from 'nextjs-toploader';
+import { Suspense } from 'react';
 import Footer from '../components/Footer';
 import GoToTopButton from '../components/GoToTopButton';
 import Navbar from '../components/Navbar';
@@ -29,14 +31,16 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     return (
         <html lang="PT">
             <body>
-                <Providers>
-                    <Navbar />
-                    <NextTopLoader />
-                    <main className="min-h-screen">{children}</main>
-                    <GoToTopButton />
-                    <Footer />
-                    <Toaster />
-                </Providers>
+                <Suspense fallback={<LoadingSpinner />}>
+                    <Providers>
+                        <Navbar />
+                        <NextTopLoader />
+                        <main className="min-h-screen">{children}</main>
+                        <GoToTopButton />
+                        <Footer />
+                        <Toaster />
+                    </Providers>
+                </Suspense>
             </body>
         </html>
     );

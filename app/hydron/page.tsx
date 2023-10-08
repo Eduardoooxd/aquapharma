@@ -25,6 +25,7 @@ async function HydronPage() {
                         className={`absolute h-auto w-full`}
                         sizes="100vw"
                         fill
+                        priority
                         style={{ objectFit: 'cover' }}
                         alt="Aquapharma Hydron Background Image"
                     />
@@ -32,6 +33,7 @@ async function HydronPage() {
                 <div className="main-container relative z-10 flex h-full flex-col items-center justify-center gap-16 lg:flex-row lg:py-0">
                     <Image
                         src={HeroHydronImage}
+                        quality={100}
                         className={`h-auto w-full max-w-sm`}
                         priority
                         alt="aquapharma hydron"

@@ -12,7 +12,7 @@ import NavbarLink, { MobileNavbarLink } from '../NavbarLink';
 import { NAVBAR_LINKS } from './data';
 
 const Navbar = () => {
-    const [isScrolled, setIsScrolled] = useState(window.scrollY > 50);
+    const [isScrolled, setIsScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
     useDisableBodyScroll({ isNavBarOpen: menuOpen });
@@ -20,6 +20,10 @@ const Navbar = () => {
     const closeMobileMenu = () => setMenuOpen(false);
 
     useNextNavigationEvent({ routeChangedCallback: closeMobileMenu });
+
+    useEffect(() => {
+        setIsScrolled(window.scrollY > 50);
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
