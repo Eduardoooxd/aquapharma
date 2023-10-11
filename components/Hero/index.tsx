@@ -44,7 +44,7 @@ const HeroCarouselImages = ({ carouselItems }: HeroCarouselProps) => {
                     className="relative h-full min-h-screen w-full shrink-0 grow-0"
                 >
                     <Image
-                        priority={index === 0}
+                        priority
                         className={cn(
                             'h-screen',
                             `${isIndexOfVisibleImage(index) ? 'scale-125 animate-zoomIn' : ''}`
